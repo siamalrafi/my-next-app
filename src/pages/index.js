@@ -1,6 +1,8 @@
 import React from "react";
 import { Breadcrumb, Layout, Menu, Button, theme } from "antd";
 import Link from "next/link";
+import RootLayout from "../components/Layouts/RootLayout";
+import Head from "next/head";
 
 const { Header, Content, Footer } = Layout;
 
@@ -10,28 +12,17 @@ const AppHomePage = () => {
    } = theme.useToken();
 
    return (
-      <Layout className="layout">
-         <Header style={{ display: "flex", alignItems: "center" }}>
-            <div className="demo-logo" />
-            <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["2"]}>
-               <Button type="primary">
-                  <Link href={"/news"}>News</Link>
-               </Button>
-            </Menu>
-         </Header>
-         <Content style={{ padding: "0 50px" }}>
-            <Breadcrumb style={{ margin: "16px 0" }}>
-               <Breadcrumb.Item>Home</Breadcrumb.Item>
-               <Breadcrumb.Item>List</Breadcrumb.Item>
-               <Breadcrumb.Item>App</Breadcrumb.Item>
-            </Breadcrumb>
-            <div className="site-layout-content" style={{ background: colorBgContainer, minHeight: "100vh" }}>
-               Content
-            </div>
-         </Content>
-         <Footer style={{ textAlign: "center" }}>Ant Design ©2023 Created by Ant UED</Footer>
-      </Layout>
+      <div>
+         <Head>
+            <title>Next Home Page</title>
+            <meta name="home page" description="this is the home page"></meta>
+         </Head>
+         <h1>Next Js Home Page.</h1>
+      </div>
    );
 };
 
 export default AppHomePage;
+AppHomePage.getLayout = function getLayout(page) {
+   return <RootLayout>{page}</RootLayout>;
+};
