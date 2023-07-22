@@ -4,8 +4,6 @@ import Link from "next/link";
 import RootLayout from "../components/Layouts/RootLayout";
 import Head from "next/head";
 
-const { Header, Content, Footer } = Layout;
-
 const AppHomePage = () => {
    const {
       token: { colorBgContainer },
